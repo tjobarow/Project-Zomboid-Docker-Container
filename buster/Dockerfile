@@ -7,7 +7,7 @@ LABEL maintainer="tjobarow@gmail.com"
 ENV STEAMAPPID 380870
 ENV STEAMAPP project-zomboid
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
-ENV DLURL https://raw.githubusercontent.com/CM2Walki/Squad:Q
+ENV DLURL "https://raw.githubusercontent.com/tjobarow/Project-Zomboid-Docker-Container/"
 
 
 
@@ -15,7 +15,7 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
 		wget=1.20.1-1.1 \
-	&& wget "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
+	&& wget "${DLURL}/main/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	&& chmod 755 "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	&& chown "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
